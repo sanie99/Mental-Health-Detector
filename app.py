@@ -4,7 +4,7 @@ import joblib
 from huggingface_hub import hf_hub_download
 import joblib
 
-REPO_ID = "sanie99/mental_health_prediction_model"
+REPO_ID = "sanie99/Mental_Health_Risk_Prediction"
 
 logistic_model = joblib.load(
     hf_hub_download(REPO_ID, "logistic_model.pkl")
