@@ -1,11 +1,22 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from huggingface_hub import hf_hub_download
+import joblib
 
-# Loading trained models
-logistic_model = joblib.load('models/logistic_model.pkl')
-decision_tree_model = joblib.load('models/decision_tree_model.pkl')
-random_forest_model = joblib.load('models/random_forest_model.pkl')
+REPO_ID = "sanie99/mental-health-prediction-model"
+
+logistic_model = joblib.load(
+    hf_hub_download(REPO_ID, "logistic_model.pkl")
+)
+
+decision_tree_model = joblib.load(
+    hf_hub_download(REPO_ID, "decision_tree_model.pkl")
+)
+
+random_forest_model = joblib.load(
+    hf_hub_download(REPO_ID, "random_forest_model.pkl")
+)
 
 # streamlit app
 st.title("Healthcare AI Model Prediction")
